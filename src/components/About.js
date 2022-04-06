@@ -1,37 +1,41 @@
-import React, {useState} from "react";
+// import React, {useState} from "react";
 
-export default function () {
+export default function About(props) {
 
-    const [myStyle, setMyStyle] = useState(
-        {
-            color: 'white',
-            backgroundColor:'black'
-        });
+    // const [myStyle, setMyStyle] = useState(
+    //     {
+    //         color: 'white',
+    //         backgroundColor:'black'
+    //     });
     
-    const [btntext, setBtnText] = useState("Enable Dark Mode")
-
+    // const [btntext, setBtnText] = useState("Enable Dark Mode")
     
-    // toggle style function
-    const toggleStyle = ()=>{
-      if(myStyle.color == 'black'){
-         setMyStyle({
+    let myStyle = {
+      color: props.mode === 'dark'?'white':'#042743',
+      backgroundColor: props.mode ==='dark'?'rgb(36 74 104)':'white'
+  }
+    
+    // // toggle style function
+    // const toggleStyle = ()=>{
+    //   if(myStyle.color === 'black'){
+    //      setMyStyle({
              
-            color: 'white',
-            backgroundColor:'black',
-            border:'2px solid white'
+    //         color: 'white',
+    //         backgroundColor:'black',
+    //         border:'2px solid white'
              
-         })
-         setBtnText("Enable Light Mode")
-      }
-      else{
-        setMyStyle({
-          color: 'black',
-          backgroundColor:'white',
-      })
-        setBtnText("Enable Dark Mode")
-      }
+    //      })
+    //      setBtnText("Enable Light Mode")
+    //   }
+    //   else{
+    //     setMyStyle({
+    //       color: 'black',
+    //       backgroundColor:'white',
+    //   })
+    //     setBtnText("Enable Dark Mode")
+    //   }
 
-    }
+    // }
 
   return (
     <div className="container" style={myStyle}>
@@ -136,9 +140,9 @@ export default function () {
           </div>
         </div>
       </div>
-      <div className="container my-1">
+      {/* <div className="container my-1">
       <button onClick={toggleStyle} className="btn btn-danger">{btntext}</button>
-      </div>
+      </div> */}
     </div>
   );
 }
